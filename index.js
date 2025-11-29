@@ -7,8 +7,10 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const dotenv = require('dotenv');
+dotenv.config();
 // * Please DO NOT INCLUDE the private app access token in your repo. Don't do this practicum in your normal account.
-const PRIVATE_APP_ACCESS = '';
+const PRIVATE_APP_ACCESS = process.env.HUBSPOT_ACCESS_TOKEN;
 
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
@@ -22,11 +24,9 @@ const PRIVATE_APP_ACCESS = '';
 
 // * Code for Route 3 goes here
 
-/** 
-* * This is sample code to give you a reference for how you should structure your calls. 
-
-* * App.get sample
-app.get('/contacts', async (req, res) => {
+ 
+// * App.get sample
+app.get('/', async (req, res) => {
     const contacts = 'https://api.hubspot.com/crm/v3/objects/contacts';
     const headers = {
         Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
@@ -41,7 +41,7 @@ app.get('/contacts', async (req, res) => {
     }
 });
 
-* * App.post sample
+// * App.post sample
 app.post('/update', async (req, res) => {
     const update = {
         properties: {
@@ -64,7 +64,7 @@ app.post('/update', async (req, res) => {
     }
 
 });
-*/
+
 
 
 // * Localhost
