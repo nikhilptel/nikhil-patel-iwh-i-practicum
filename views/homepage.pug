@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    .container
+      header
+        h1 Cars Dashboard
+        a.btn(href="/update-cobj") + Add New Car
+
+      if records.length
+        table
+          thead
+            tr
+              th Car Name
+              th Make
+              th Year
+          tbody
+            each rec in records
+              tr
+                td= rec.properties.car_name
+                td= rec.properties.make
+                td= rec.properties.year
+      else
+        .empty No car records found.
