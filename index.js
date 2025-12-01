@@ -22,8 +22,11 @@ app.get('/', async (req, res) => {
 
     res.render('homepage', {
       title: "Homepage | Integrating with HubSpot Practicum",
-      records: response.data.results
+      records: response.data.results,
+      
     })
+
+    console.log(response.data.results);
   } catch (err) {
     console.log(err)
     res.send("Error loading homepage")
@@ -36,4 +39,23 @@ app.get('/update-cobj', (req, res) => {
   })
 })
 
+
+app.post('/update-cobj', async (req, res) => {
+  const { car_name, make, year } = req.body
+  try {
+    await axios.post(
+      `https://api.hubapi.com/crm/v3/objects/${CUSTOM_OBJECT}`,
+      {
+        properties: { car_name, make, year }
+      },
+      {
+        headers: { Authorization: `Bearer ${HUBSPOT_TOKEN}` }
+      }
+    )
+    res.redirect('/')
+  } catch (err) {
+    console.log(err.response?.data || err)
+    res.send("Error creating car record")
+  }
+})
 app.listen(3000, () => console.log("Server running on http://localhost:3000"))

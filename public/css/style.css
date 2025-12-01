@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7f9fc;
+  font-family: "Inter", Arial, sans-serif;
+  color: #1a1a1a;
+}
+
+a {
+  color: #0057d9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a.btn {
+    margin-bottom: 20px;
+    display: block;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* ----- Heading ----- */
+
+.page-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #172b4d;
+}
+
+/* ----- Car List Table ----- */
+
+.table-wrapper {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f1f4f9;
+}
+
+thead th {
+  padding: 14px;
+  font-size: 14px;
+  text-align: left;
+  color: #555;
+  font-weight: 600;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ececec;
+}
+
+tbody tr:hover {
+  background: #f9fbff;
+}
+
+tbody td {
+  padding: 14px;
+  font-size: 15px;
+}
+
+.car-link {
+  font-weight: 600;
+  color: #0057d9;
+}
+
+.car-link:hover {
+  text-decoration: underline;
+}
+
+/* ----- Car Detail Box ----- */
+
+.details-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.details-row {
+  margin-bottom: 16px;
+}
+
+.details-row label {
+  font-size: 14px;
+  color: #666;
+  display: block;
+}
+
+.details-row .value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* ----- Back Button ----- */
+
+.back-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 18px;
+  background: #0057d9;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  background: #003f9e;
+}
+
+/* ----- Responsive ----- */
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 24px;
+  }
+
+  thead {
+    display: none;
+  }
+
+  table, tbody, tr, td {
+    display: block;
+    width: 100%;
+  }
+
+  tbody tr {
+    margin-bottom: 18px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  }
+
+  tbody td {
+    padding: 6px 0;
+    font-size: 15px;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    font-size: 13px;
+    font-weight: 600;
+    color: #777;
+    display: block;
+    margin-bottom: 2px;
+  }
+}

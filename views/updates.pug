@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    .container
+      header
+        a.back(href="/") ← Back
+        h1 Add a New Car
+
+      form.form(action="/update-cobj" method="POST")
+
+        .form-control
+          label Car Name
+          input(type="text" name="car_name" required)
+
+        .form-control
+          label Make
+          input(type="text" name="make" required)
+
+        .form-control
+          label Year
+          input(type="number" name="year" required)
+
+        button.btn(type="submit") Add Car
